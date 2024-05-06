@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+    cqrs-sql-server:
+        container_name: CqrsSqlServer
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        restart: always
+        ports:
+            - 1433:1433
+        environment:
+            ACCEPT_EULA: Y
+            SA_PASSWORD: example

@@ -2,9 +2,9 @@
 public class Employee : Person
 {
     public DateOnly AdmissionDate { get; private set; }
-    public IEnumerable<Dependent> Dependents { get; private set; } = [];
+    public IEnumerable<Dependent>? Dependents { get; private set; }
 
-    public Employee(string code, string name, DateOnly admissionDate, IEnumerable<Dependent> dependents) : base(code, name)
+    public Employee(string name, DateOnly admissionDate, IEnumerable<Dependent>? dependents) : base(name)
     {
         AdmissionDate = admissionDate;
         Dependents = dependents;
