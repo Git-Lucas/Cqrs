@@ -6,7 +6,7 @@ public class Dependent : Person
     public TypeDependency Type { get; private set; }
     public short Age { get; private set; }
 
-    public Dependent(string code, string name, TypeDependency type, short age) : base(code, name)
+    public Dependent(string name, TypeDependency type, short age) : base(name)
     {
         Type = type;
         Age = age;

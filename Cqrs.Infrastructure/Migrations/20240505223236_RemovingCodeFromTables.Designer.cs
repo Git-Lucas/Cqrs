@@ -4,6 +4,7 @@ using Cqrs.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cqrs.Infrastructure.Migrations
 {
     [DbContext(typeof(EfSqlServerAdapter))]
-    partial class EfSqlServerAdapterModelSnapshot : ModelSnapshot
+    [Migration("20240505223236_RemovingCodeFromTables")]
+    partial class RemovingCodeFromTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +39,7 @@ namespace Cqrs.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies", (string)null);
+                    b.ToTable("Companies");
                 });
 
             modelBuilder.Entity("Cqrs.Domain.Departments.Entities.Department", b =>
@@ -61,7 +64,7 @@ namespace Cqrs.Infrastructure.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Departments", (string)null);
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("Cqrs.Domain.Employees.Entities.Dependent", b =>
@@ -89,7 +92,7 @@ namespace Cqrs.Infrastructure.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Dependent", (string)null);
+                    b.ToTable("Dependent");
                 });
 
             modelBuilder.Entity("Cqrs.Domain.Employees.Entities.Employee", b =>
@@ -114,7 +117,7 @@ namespace Cqrs.Infrastructure.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("Cqrs.Domain.Projects.Entities.Project", b =>
@@ -145,7 +148,7 @@ namespace Cqrs.Infrastructure.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Projects", (string)null);
+                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("Cqrs.Domain.Departments.Entities.Department", b =>

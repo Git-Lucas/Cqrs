@@ -1,3 +1,4 @@
+using Cqrs.Application;
 using Cqrs.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,5 +30,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/", () =>
+{
+    return Results.Ok("CQRS Running");
+});
+
+app.MapEndpointSeed();
 
 app.Run();
